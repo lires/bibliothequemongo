@@ -98,3 +98,78 @@ db.livres.insertMany([
     date_ajout: new Date("2023-06-30")
   }
 ])
+
+
+### 1.3 Ajouter 3 utilisateurs
+
+db.utilisateurs.insertMany([
+  {
+    nom: "Dupont",
+    prenom: "Marie",
+    email: "marie.dupont@example.com",
+    age: 28,
+    adresse: {
+      rue: "123 Avenue des Livres",
+      ville: "Lyon",
+      code_postal: "69002"
+    },
+    date_inscription: new Date("2022-12-10"),
+    livres_empruntes: [
+      {
+        livre_id: ObjectId("65f6a5b8d6e4c3b2a1d4f7e9"), // Remplacer par un vrai ID
+        titre: "Le Petit Prince",
+        date_emprunt: new Date("2023-02-15"),
+        date_retour_prevue: new Date("2023-03-15")
+      }
+    ],
+    tags: ["fiction", "histoire"]
+  },
+  {
+    nom: "Martin",
+    prenom: "Thomas",
+    email: "thomas.martin@example.com",
+    age: 35,
+    adresse: {
+      rue: "45 Rue des Romans",
+      ville: "Paris",
+      code_postal: "75008"
+    },
+    date_inscription: new Date("2021-07-22"),
+    livres_empruntes: [
+      {
+        livre_id: ObjectId("65f6a5b8d6e4c3b2a1d4f7ea"), // Remplacer par un vrai ID
+        titre: "1984",
+        date_emprunt: new Date("2023-06-10"),
+        date_retour_prevue: new Date("2023-07-10")
+      },
+      {
+        livre_id: ObjectId("65f6a5b8d6e4c3b2a1d4f7eb"), // Remplacer par un vrai ID
+        titre: "Les Misérables",
+        date_emprunt: new Date("2023-08-01"),
+        date_retour_prevue: new Date("2023-09-01")
+      }
+    ],
+    tags: ["dystopie", "classique"]
+  },
+  {
+    nom: "Lemoine",
+    prenom: "Sophie",
+    email: "sophie.lemoine@example.com",
+    age: 24,
+    adresse: {
+      rue: "89 Boulevard des Écrivains",
+      ville: "Marseille",
+      code_postal: "13001"
+    },
+    date_inscription: new Date("2023-03-05"),
+    livres_empruntes: [
+      {
+        livre_id: ObjectId("65f6a5b8d6e4c3b2a1d4f7ec"), // Remplacer par un vrai ID
+        titre: "Harry Potter à l'école des sorciers",
+        date_emprunt: new Date("2023-09-20"),
+        date_retour_prevue: new Date("2023-10-20")
+      }
+    ],
+    tags: ["fantasy", "magie"]
+  }
+])
