@@ -41,3 +41,34 @@ db.utilisateurs.find({
         }
     }
 })
+
+
+#### 3.  Créez une collection rues avec au moins une rue représentée comme un LineString GeoJSON, puis utilisez $geoIntersects pour trouver les bibliothèques dont la zone de service intersecte cette rue.
+
+
+db.rues.insertOne({
+  "nom": "rue de la rose",
+  "loc": {
+    "type": "LineString",
+    "coordinates": [
+      [2.350, 48.4566],
+      [2.360, 48.4666]
+    ]
+  }
+});
+
+db.rues.createIndex({ "loc": "2dsphere" });
+
+db.bibliotheques.find({
+  "loc": {
+    $geoIntersects: {
+      $geometry: {
+        "type": "LineString",
+        "coordinates": [
+          [2.350, 48.4566],
+          [2.360, 48.4666]
+        ]
+      }
+    }
+  }
+});
